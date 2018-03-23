@@ -6,15 +6,21 @@ use Htmldom;
 use App\Link;
 use DB;
 
-use TelegramBot\Api\BotApi;
+
+use naffiq\telegram\channel\Manager;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
+
 class ParseController extends Controller
 {
+
+
+
+
     public function index()
-        
+
     {
         $links =  DB::table('links')->orderBy('id', 'desc')->paginate(30);
 //        $links = $links->sortByDesc('id');
@@ -25,19 +31,7 @@ class ParseController extends Controller
 
 
 
-    public function parse_911()
-    {
-        Link::parse_dtkt();
 
-
-    }
-
-    public static function getDateTimeAttribute()
-    {
-        setlocale(LC_ALL, 'ru' . '.utf-8', 'ru_RU' . '.utf-8', 'ru', 'ru_RU');
-
-        echo (Carbon::now('Europe/Kiev')->formatLocalized("%d %B, %Y")) . ' ' . (Carbon::now('Europe/Kiev')->format('H:i'));
-    }
 
 //    public static function Date()
 //    {
@@ -53,17 +47,20 @@ class ParseController extends Controller
 
 
 
-    public function telegram()
-    {
+//    public function telegram()
+//    {
+//
+//        $manager = new \naffiq\telegram\channel\Manager('541854266:AAHestNP3Kw89xumgUk_oS05zC7S1i5z7XI', -1001195518704);
+//
+//        $manager->postMessage('<a href="https://news.dtkt.ua/ru/simple/common/47659">ГРС против усиления контроля за использованием РРО «единщиками»</a> &#160; <i>(аналитика)</i> &#160; <b>Источник: сайт Бухгалтер 911</b>');
 
-
-        $bot = new \TelegramBot\Api\BotApi('541854266:AAHestNP3Kw89xumgUk_oS05zC7S1i5z7XI');
-        $bot->sendMessage(467775523, 'Чварика');
+//        $bot = new \TelegramBot\Api\BotApi(541854266:AAHestNP3Kw89xumgUk_oS05zC7S1i5z7XI);
+//        $this->bot->sendMessage(-1001195518704, '<a href="https://news.dtkt.ua/ru/simple/common/47659">ГРС против усиления контроля за использованием РРО «единщиками»</a> &#160; <i>(аналитика)</i> &#160; <b>Источник: сайт Бухгалтер 911</b>', 'HTML', true, true);
 
 //
 //            $bot->run();
 //            echo "run!";
 
-    }
+//    }
 
 }

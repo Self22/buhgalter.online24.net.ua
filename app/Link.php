@@ -6,6 +6,7 @@ use Htmldom;
 use TelegramBot\Api\BotApi;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use naffiq\telegram\channel\Manager;
 
 class Link extends Model
 
@@ -14,11 +15,11 @@ class Link extends Model
     {
         setlocale(LC_ALL, 'ru' . '.utf-8', 'ru_RU' . '.utf-8', 'ru', 'ru_RU');
 
-        return iconv('cp1251', 'utf-8', (Carbon::now('Europe/Kiev')->formatLocalized("%d %B, %Y")) . ' ' . (Carbon::now('Europe/Kiev')->format('H:i')));
+        return (Carbon::now('Europe/Kiev')->formatLocalized("%d %B, %Y")) . ' ' . (Carbon::now('Europe/Kiev')->format('H:i'));
     }
 
 
-    public static function save_link($href, $anchor, $site, $category, $tag = 'null'){
+    protected static function save_link($href, $anchor, $site, $category, $tag = 'null'){
 
         if (Link::where('href', $href)->exists()) {
             return;
@@ -33,6 +34,15 @@ class Link extends Model
         $link->time =  Link::getDateTimeAttribute();
         $link->save();
 
+    }
+
+    protected static function telegram($href, $anchor, $site, $category){
+
+        $message ='<a href="'.$href.'">'.$anchor.'</a> &#160; <i>'.$category.' </i>Источник: <b>'.$site.'</b>';
+
+        $manager = new \naffiq\telegram\channel\Manager('541854266:AAHestNP3Kw89xumgUk_oS05zC7S1i5z7XI', -1001195518704);
+
+        $manager->postMessage($message);
     }
 
     public static function parse_911()
@@ -53,6 +63,11 @@ class Link extends Model
 
 
             $href = 'https://buhgalter911.com' . $element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Бухгалтер911', 'новость');
+            sleep(2);
             Link::save_link($href, $anchor, 'Бухгалтер911', 'новость');
 
 
@@ -70,6 +85,11 @@ class Link extends Model
 
 
             $href = 'https://buh.ligazakon.net/novosti-bukhgalterii' . $element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Бухгалтер.UA', 'новость');
+            sleep(2);
             Link::save_link($href, $anchor, 'Бухгалтер.UA', 'новость');
 
         }
@@ -84,6 +104,11 @@ class Link extends Model
 
 
             $href = 'https://buh.ligazakon.net/bukhgalterskaya-analitika' . $element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Бухгалтер.UA', 'аналитика');
+            sleep(2);
             Link::save_link($href, $anchor, 'Бухгалтер.UA', 'аналитика');
 
         }
@@ -106,6 +131,11 @@ class Link extends Model
 
 
             $href = $element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Бухгалтер.UA', 'консультация');
+            sleep(2);
             Link::save_link($href, $anchor, 'Бухгалтер.UA', 'консультация');
 
         }
@@ -126,7 +156,11 @@ class Link extends Model
 
 
             $href = 'https://i.factor.ua'.$element->href;
-
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'iFactor', 'новость');
+            sleep(2);
             Link::save_link($href, $anchor, 'iFactor', 'новость');
 
         }
@@ -144,6 +178,11 @@ class Link extends Model
 
 
             $href = 'https://i.factor.ua'.$element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'iFactor', $category);
+            sleep(2);
             Link::save_link($href, $anchor, 'iFactor', $category);
 
         }
@@ -161,6 +200,11 @@ class Link extends Model
         foreach ($links as $element) {
             $anchor = strip_tags($element->innertext);
             $href = 'https://news.dtkt.ua' . $element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Дебет-Кредит', 'новость');
+            sleep(2);
             Link::save_link($href, $anchor, 'Дебет-Кредит', 'новость');
 
         }
@@ -175,6 +219,11 @@ class Link extends Model
         foreach ($links as $element) {
             $anchor = strip_tags($element->innertext);
             $href = 'https://news.dtkt.ua' . $element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Дебет-Кредит', 'консультация');
+            sleep(2);
             Link::save_link($href, $anchor, 'Дебет-Кредит', 'консультация');
 
 
@@ -203,7 +252,11 @@ class Link extends Model
 
             $href = $notags->href;
 //            echo ($href) . '<br>';
-
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Газета "Бухгалтерия"', 'новость');
+            sleep(2);
             Link::save_link($href, $anchor, 'Газета "Бухгалтерия"', 'новость');
 
         }
@@ -223,6 +276,11 @@ class Link extends Model
 
             $anchor = strip_tags($element->innertext);
             $href = 'http://www.interbuh.com.ua' . $element->href;
+            if (Link::where('href', $href)->exists()) {
+                return;
+            }
+            Link::telegram($href, $anchor, 'Интерактивная бухгалтерия', 'новость');
+            sleep(2);
             Link::save_link($href, $anchor, 'Интерактивная бухгалтерия', 'новость');
 
         }
