@@ -1,0 +1,16 @@
+//tools
+@import "_misc/mixins";
+@import "_misc/normalize";
+
+* {
+  @include box-sizing(border-box);
+
+}
+
+html, body {
+  min-height: 99%;
+  width: 100%;
+  line-height: 1.42;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  position: relative;
+}
