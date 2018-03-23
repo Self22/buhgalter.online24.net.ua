@@ -14,6 +14,7 @@ use Carbon\Carbon;
 class ParseController extends Controller
 {
     public function index()
+        
     {
         $links =  DB::table('links')->orderBy('id', 'desc')->paginate(30);
 //        $links = $links->sortByDesc('id');
