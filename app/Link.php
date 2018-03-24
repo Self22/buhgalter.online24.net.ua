@@ -40,7 +40,7 @@ class Link extends Model
 
         $message ='<a href="'.$href.'">'.$anchor.'</a> &#160; <i>'.$category.' </i>Источник: <b>'.$site.'</b>';
 
-        $manager = new \naffiq\telegram\channel\Manager('541854266:AAHestNP3Kw89xumgUk_oS05zC7S1i5z7XI', -1001195518704);
+        $manager = new \naffiq\telegram\channel\Manager('<BOT API KEY>', '<TELEGRAM CHANNEL ID>');
 
         $manager->postMessage($message);
     }
