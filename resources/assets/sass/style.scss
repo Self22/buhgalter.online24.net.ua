@@ -12,5 +12,306 @@ html, body {
   width: 100%;
   line-height: 1.42;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  
+}
+
+html{
+  padding: 0 10% 0 9%;
+  background: rgb(247, 247, 255);
   position: relative;
+
+  @include phones{
+    padding: 0 5% 0 5%;
+  }
+}
+
+.header__index {
+  padding-top: 30px;
+  padding-left: 2%;
+  display: flex;
+  flex-flow: row wrap;
+  padding-bottom: 30px;
+  background: rgb(247, 247, 255);
+
+  @include phones{
+    padding-top: 15px;
+  }
+}
+
+.name-slogan__cont{
+  flex: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  @include phones{
+    flex: auto;
+  }
+}
+
+.project__name {
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 500;
+
+  @include phones{
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+.project__slogan{
+  font-weight: 400;
+  font-size: 28px;
+  margin: 10px 0 5px;
+
+  @include phones{
+    font-size: 16px;
+    text-align: left;
+    margin: 2px 0 0 20px;
+  }
+
+}
+
+.project__logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @include phones{
+    justify-content: flex-end;
+  }
+
+  & svg{
+    width: 60%;
+    
+    @include phones{
+      width: 25%;
+    }
+  }
+}
+.header__descr {
+
+  width: 100%;
+  font-size: 16px;
+
+  margin-bottom: 35px;
+}
+
+.cxt__cont{
+  display: flex;
+  flex-direction: row;
+
+  @include phones{
+    flex-direction: column;
+  }
+}
+
+.links__container {
+  flex: 6;
+  padding: 25px 2% 10px 2%;
+  background: white;
+
+  @include phones{
+    padding: 20px 5% 10px 5%;
+  }
+}
+
+.link__box {
+  display: flex;
+  flex-flow: row;
+  margin-bottom: 12px;
+  align-items: center;
+
+  @include phones{
+    flex-flow: row wrap;
+    align-items: flex-start;
+    padding-bottom: 17px;
+    margin-bottom: 17px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+.link__time {
+  margin-right: 1.5%;
+  flex: 0 0 auto;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+
+  @include phones{
+    font-size: 10px;
+    width: 70px;
+  }
+}
+.link__href {
+  margin-right: 1.5%;
+  flex: 9;
+  font-size: 16px;
+  @include phones{
+    font-size: 14px;
+    margin-bottom: 13px;
+    margin-left: 10px;
+    flex-basis: 160px;
+    text-align: right;
+}
+}
+.link__site {
+  margin-right: 1%;
+  font-weight: 600;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+
+  @include phones{
+    font-size: 10px;
+    width: 70px;
+    //white-space: nowrap;
+    flex: none;
+  }
+}
+.link__category {
+  padding: 1px 10px 3px;
+  background: rgba(0, 0, 0, 0.1);
+  flex: 0 0 auto;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1%;
+  font-size: 16px;
+
+  @include phones{
+    font-size: 10px;
+    margin-left: auto;
+  }
+}
+
+.pagination{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.page-item{
+  margin: 0 8px;
+  color: transparent;
+  
+  & a, span{
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.pagination_cont {
+  margin-top: 50px;
+
+  @include phones{
+    display: none;
+  }
+}
+.pagination_cont-mob {
+  display: none;
+  @include phones{
+    display: block;
+
+    & .pagination{
+      padding: 0;
+    }
+  }
+}
+.sidebar_main {
+  flex: 2;
+  padding: 0 0 0 4% ;
+  background: rgb(247, 247, 255);
+
+  @include phones{
+    display: none;}
+}
+.telegram_info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  & a{
+  text-align: center;
+    font-weight: 500;
+}
+
+}
+
+.telegram__icon{
+  width: 70%;
+  height: auto;
+}
+
+.telegram_img-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sidebar_main-mob {
+  display: none;
+  @include phones{
+    position: fixed;
+    background: white;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.telegram__mob-img {
+  flex: 1;
+  margin-right: 14px;
+  & img{
+    width: 100%;
+    height: auto;
+  }
+}
+.telegram__mob-text {
+  flex: 5;
+}
+
+
+.footer__index {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 80px 0;
+
+  @include phones{
+    flex-flow: row wrap;
+    padding: 40px 0 100px;
+  }
+}
+.copyright {
+  font-size: 24px;
+  font-weight: 500;
+
+  @include phones{
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+.footer__email {
+  font-size: 24px;
+  font-weight: 500;
+
+  @include phones{
+    font-size: 16px;
+  }
 }

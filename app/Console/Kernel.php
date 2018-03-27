@@ -28,27 +28,27 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             Link::parse_911();
-        })->everyTenMinutes();
+        })->everyMinute();
 
         $schedule->call(function () {
             Link::parse_ib();
-        })->everyTenMinutes();
+        })->everyMinute();
 
         $schedule->call(function () {
             Link::parse_buhligazakon();
-        })->everyTenMinutes();
+        })->everyMinute();
 
         $schedule->call(function () {
             Link::parse_ifactor();
-        })->everyTenMinutes();
+        })->everyMinute();
 
         $schedule->call(function () {
             Link::parse_dtkt();
-        })->everyTenMinutes();
+        })->everyMinute();
 
         $schedule->call(function () {
             Link::parse_buhgalteria();
-        })->everyTenMinutes();
+        })->everyMinute();
 
 
 

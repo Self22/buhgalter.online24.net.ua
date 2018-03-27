@@ -11,11 +11,17 @@ use naffiq\telegram\channel\Manager;
 class Link extends Model
 
 {
-    public static function getDateTimeAttribute()
+    public static function getDateAttribute()
     {
         setlocale(LC_ALL, 'ru' . '.utf-8', 'ru_RU' . '.utf-8', 'ru', 'ru_RU');
+        return (Carbon::now('Europe/Kiev')->formatLocalized("%d %B, %Y"));
+    }
 
-        return (Carbon::now('Europe/Kiev')->formatLocalized("%d %B, %Y")) . ' ' . (Carbon::now('Europe/Kiev')->format('H:i'));
+    public static function getTimeAttribute()
+    {
+        setlocale(LC_ALL, 'ru' . '.utf-8', 'ru_RU' . '.utf-8', 'ru', 'ru_RU');
+        return (Carbon::now('Europe/Kiev')->format('H:i'));
+
     }
 
 
@@ -27,20 +33,21 @@ class Link extends Model
 
         $link = new Link;
         $link->href = $href;
-        $link->anchor = trim($anchor);
+        $link->anchor = trim(html_entity_decode($anchor));
         $link->site = $site;
         $link->category = $category;
         $link->tag = $tag;
-        $link->time =  Link::getDateTimeAttribute();
+        $link->date =  Link::getDateAttribute();
+        $link->time =  Link::getTimeAttribute();
         $link->save();
 
     }
 
     protected static function telegram($href, $anchor, $site, $category){
+        $anchor = trim($anchor);
+        $message ='<b>'.$category.' </b>'.'<a href="'.$href.'">'.$anchor.'</a> &#160;' .'Источник: <b>'.$site.'</b>';
 
-        $message ='<a href="'.$href.'">'.$anchor.'</a> &#160; <i>'.$category.' </i>Источник: <b>'.$site.'</b>';
-
-        $manager = new \naffiq\telegram\channel\Manager('541854266:AAHestNP3Kw89xumgUk_oS05zC7S1i5z7XI', -1001195518704);
+        $manager = new \naffiq\telegram\channel\Manager(env('TELEGRAM_BOT_API'), env('TELEGRAM_CHANNEL_ID'));
 
         $manager->postMessage($message);
     }

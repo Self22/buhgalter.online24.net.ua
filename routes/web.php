@@ -12,5 +12,5 @@
 */
 
 Route::get('/', 'ParseController@index');
-Route::get('/index', 'ParseController@parse_911');
-Route::get('/tel', 'ParseController@telegram');
+
+Route::get('/tel', 'ParseController@teltest');
