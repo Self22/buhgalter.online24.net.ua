@@ -17,7 +17,7 @@ html, body {
 
 html{
   padding: 0 10% 0 9%;
-  background: rgb(247, 247, 255);
+  background: rgb(226, 239, 252);
   position: relative;
 
   @include phones{
@@ -31,7 +31,7 @@ html{
   display: flex;
   flex-flow: row wrap;
   padding-bottom: 30px;
-  background: rgb(247, 247, 255);
+  background: rgb(226, 239, 252);
 
   @include phones{
     padding-top: 15px;
@@ -231,7 +231,7 @@ html{
 .sidebar_main {
   flex: 2;
   padding: 0 0 0 4% ;
-  background: rgb(247, 247, 255);
+  background: rgb(226, 239, 252);
 
   @include phones{
     display: none;}
