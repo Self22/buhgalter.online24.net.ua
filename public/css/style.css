@@ -468,7 +468,7 @@ body {
 
 html {
   padding: 0 10% 0 9%;
-  background: #f7f7ff;
+  background: #f7f3e0;
   position: relative;
 }
 
@@ -489,7 +489,7 @@ html {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   padding-bottom: 30px;
-  background: #f7f7ff;
+  background: #f7f3e0;
 }
 
 @media screen and (max-width: 480px) {
@@ -608,8 +608,9 @@ html {
   -webkit-box-flex: 6;
       -ms-flex: 6;
           flex: 6;
-  padding: 25px 2% 10px 2%;
+  padding: 30px 3% 10px 3%;
   background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 480px) {
@@ -626,10 +627,10 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
-  margin-bottom: 12px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin-bottom: 20px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 
 @media screen and (max-width: 480px) {
@@ -709,7 +710,8 @@ html {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
+  color: #0E6792;
 }
 
 @media screen and (max-width: 480px) {
@@ -803,7 +805,7 @@ html {
       -ms-flex: 2;
           flex: 2;
   padding: 0 0 0 4%;
-  background: #f7f7ff;
+  background: #f7f3e0;
 }
 
 @media screen and (max-width: 480px) {

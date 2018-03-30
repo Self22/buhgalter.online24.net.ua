@@ -22,7 +22,7 @@ class ParseController extends Controller
     public function index()
 
     {
-        $links =  DB::table('links')->orderBy('id', 'desc')->paginate(30);
+        $links =  DB::table('links')->orderBy('id', 'desc')->paginate(60);
         $links_mob = DB::table('links')->orderBy('id', 'desc')->simplePaginate(30);
 //        $links = $links->sortByDesc('id');
 //        $links = $links->paginate(15);s
@@ -31,12 +31,7 @@ class ParseController extends Controller
     }
 
 
-    public function teltest(){
-        Link::telegram(1,1,1,1);
 
-
-
-    }
 
 
 

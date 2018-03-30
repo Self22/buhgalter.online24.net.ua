@@ -27,10 +27,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            Link::parse_911();
-        })->everyMinute();
-
-        $schedule->call(function () {
             Link::parse_ib();
         })->everyMinute();
 
@@ -48,6 +44,10 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () {
             Link::parse_buhgalteria();
+        })->everyMinute();
+
+        $schedule->call(function () {
+            Link::parse_911();
         })->everyMinute();
 
 

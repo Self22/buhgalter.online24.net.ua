@@ -17,8 +17,8 @@ html, body {
 
 html{
   padding: 0 10% 0 9%;
-  background: rgb(226, 239, 252);
-  position: relative;
+  background: rgb(247, 243, 224);
+position: relative;
 
   @include phones{
     padding: 0 5% 0 5%;
@@ -31,7 +31,7 @@ html{
   display: flex;
   flex-flow: row wrap;
   padding-bottom: 30px;
-  background: rgb(226, 239, 252);
+  background: rgb(247, 243, 224);
 
   @include phones{
     padding-top: 15px;
@@ -110,8 +110,9 @@ html{
 
 .links__container {
   flex: 6;
-  padding: 25px 2% 10px 2%;
+  padding: 30px 3% 10px 3%;
   background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 
   @include phones{
     padding: 20px 5% 10px 5%;
@@ -121,8 +122,8 @@ html{
 .link__box {
   display: flex;
   flex-flow: row;
-  margin-bottom: 12px;
-  align-items: center;
+  margin-bottom: 20px;
+  align-items: baseline;
 
   @include phones{
     flex-flow: row wrap;
@@ -168,7 +169,8 @@ html{
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
+  color: #0E6792;
 
   @include phones{
     font-size: 10px;
@@ -231,7 +233,7 @@ html{
 .sidebar_main {
   flex: 2;
   padding: 0 0 0 4% ;
-  background: rgb(226, 239, 252);
+  background: rgb(247, 243, 224) ;
 
   @include phones{
     display: none;}

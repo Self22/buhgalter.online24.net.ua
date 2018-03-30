@@ -13,4 +13,4 @@
 
 Route::get('/', 'ParseController@index');
 
-Route::get('/tel', 'ParseController@teltest');
+Route::get('/911', 'ParseController@p911');

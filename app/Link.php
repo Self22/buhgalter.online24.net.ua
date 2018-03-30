@@ -15,17 +15,19 @@ class Link extends Model
     {
         setlocale(LC_ALL, 'ru' . '.utf-8', 'ru_RU' . '.utf-8', 'ru', 'ru_RU');
         return (Carbon::now('Europe/Kiev')->formatLocalized("%d %B, %Y"));
+//        return '555';
     }
 
     public static function getTimeAttribute()
     {
         setlocale(LC_ALL, 'ru' . '.utf-8', 'ru_RU' . '.utf-8', 'ru', 'ru_RU');
         return (Carbon::now('Europe/Kiev')->format('H:i'));
-
+//            return '555';
     }
 
 
-    protected static function save_link($href, $anchor, $site, $category, $tag = 'null'){
+    protected static function save_link($href, $anchor, $site, $category, $tag = 'null')
+    {
 
         if (Link::where('href', $href)->exists()) {
             return;
@@ -37,15 +39,19 @@ class Link extends Model
         $link->site = $site;
         $link->category = $category;
         $link->tag = $tag;
-        $link->date =  Link::getDateAttribute();
-        $link->time =  Link::getTimeAttribute();
+        $link->date = Link::getDateAttribute();
+        $link->time = Link::getTimeAttribute();
         $link->save();
 
     }
 
-    protected static function telegram($href, $anchor, $site, $category){
+    protected static function telegram($href, $anchor, $site, $category)
+    {
+        if (Link::where('href', $href)->exists()) {
+            return;
+        }
         $anchor = trim($anchor);
-        $message ='<b>'.$category.' </b>'.'<a href="'.$href.'">'.$anchor.'</a> &#160;' .'Источник: <b>'.$site.'</b>';
+        $message = '<b>' . $category . ' </b>' . '<a href="' . $href . '">' . $anchor . '</a> &#160;' . 'Источник: <b>' . $site . '</b>';
 
         $manager = new \naffiq\telegram\channel\Manager(env('TELEGRAM_BOT_API'), env('TELEGRAM_CHANNEL_ID'));
 
@@ -56,28 +62,64 @@ class Link extends Model
     {
         $html = new \Htmldom('https://buhgalter911.com/news/');
 
-        $links = $html->find('.news__link  ');
+        $links = $html->find('.news__link');
 
 
 //        // Find all links
         foreach ($links as $element) {
+            $href = 'https://buhgalter911.com' . $element->href;
+
+
+            /// пропускаем рекламу, выделяем рубрики, если они есть
             $anchor = strip_tags($element->innertext);
             if (strpos($anchor, 'Реклама')) {
                 continue;
+            } elseif (strpos($anchor, 'Важно')) {
+                $anchor = str_replace('Важно', '', $anchor);
+                $category = 'важно';
+                if (Link::where('href', $href)->exists()) {
+                    continue;
+                }
+                Link::telegram($href, $anchor, 'Бухгалтер911', $category);
+                sleep(2);
+                Link::save_link($href, $anchor, 'Бухгалтер911', $category);
+            } elseif (strpos($anchor, 'Вопрос')) {
+                $anchor = str_replace('Вопрос', '', $anchor);
+                $category = 'вопрос';
+                if (Link::where('href', $href)->exists()) {
+                    continue;
+                }
+                Link::telegram($href, $anchor, 'Бухгалтер911', $category);
+                sleep(2);
+                Link::save_link($href, $anchor, 'Бухгалтер911', $category);
+            } elseif (strpos($anchor, 'Закон')) {
+                $anchor = str_replace('Закон', '', $anchor);
+                $category = 'закон';
+                if (Link::where('href', $href)->exists()) {
+                    continue;
+                }
+                Link::telegram($href, $anchor, 'Бухгалтер911', $category);
+                sleep(2);
+                Link::save_link($href, $anchor, 'Бухгалтер911', $category);
+            } elseif (strpos($anchor, 'Аналитика')) {
+                $anchor = str_replace('Аналитика', '', $anchor);
+                $category = 'аналитика';
+                if (Link::where('href', $href)->exists()) {
+                    continue;
+                }
+                Link::telegram($href, $anchor, 'Бухгалтер911', $category);
+                sleep(2);
+                Link::save_link($href, $anchor, 'Бухгалтер911', $category);
+            } /// если рубрик нет, записываем с рубрикой "новость"
+            else {
+                if (Link::where('href', $href)->exists()) {
+                    continue;
+                }
+                Link::telegram($href, $anchor, 'Бухгалтер911', 'новость');
+                sleep(2);
+                Link::save_link($href, $anchor, 'Бухгалтер911', 'новость');
+
             }
-            $anchor = str_replace('Важно', '', $anchor);
-            $anchor = str_replace('Вопрос', 'Вопрос:', $anchor);
-
-
-            $href = 'https://buhgalter911.com' . $element->href;
-            if (Link::where('href', $href)->exists()) {
-                return;
-            }
-            Link::telegram($href, $anchor, 'Бухгалтер911', 'новость');
-            sleep(2);
-            Link::save_link($href, $anchor, 'Бухгалтер911', 'новость');
-
-
         }
     }
 
@@ -114,6 +156,7 @@ class Link extends Model
             if (Link::where('href', $href)->exists()) {
                 return;
             }
+
             Link::telegram($href, $anchor, 'Бухгалтер.UA', 'аналитика');
             sleep(2);
             Link::save_link($href, $anchor, 'Бухгалтер.UA', 'аналитика');
@@ -134,7 +177,6 @@ class Link extends Model
                 $anchor = mb_substr($anchor, 0, $key) . '...';
 
             }
-
 
 
             $href = $element->href;
@@ -161,8 +203,7 @@ class Link extends Model
             $anchor = strip_tags($element->innertext);
 
 
-
-            $href = 'https://i.factor.ua'.$element->href;
+            $href = 'https://i.factor.ua' . $element->href;
             if (Link::where('href', $href)->exists()) {
                 return;
             }
@@ -184,7 +225,7 @@ class Link extends Model
             $category = $element->next_sibling()->innertext;
 
 
-            $href = 'https://i.factor.ua'.$element->href;
+            $href = 'https://i.factor.ua' . $element->href;
             if (Link::where('href', $href)->exists()) {
                 return;
             }
