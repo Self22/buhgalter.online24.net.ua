@@ -3,7 +3,7 @@
 <head>
     @include('shared.ga')
     <meta charset="UTF-8">
-    <title>Бухгалтер Online24 : новостной агрегатор для бухгалтеров Украины</title>
+    <title>Бухгалтер Online24 : портал бухгалтерских новостей Украины</title>
     <meta name="description"
           content="Экономия времени бухгалтера: вся новейшая информация лучших сайтов для бухгалтеров на одной странице, обновление каждые 5 минут. Новостной канал Telegram для бухгалтеров. Новости, консультации, аналитика.">
     <meta name="Keywords" content="ліга законів, консультація для бухгалтерів онлайн">
@@ -19,7 +19,7 @@
                 Бухгалтер Онлайн24
             </div>
 
-            <h1 class="project__slogan">новости бухгалтерского мира Украины</h1>
+            <h1 class="project__slogan">новостной бухгалтерский портал Украины</h1>
         </div>
 
 
@@ -83,6 +83,23 @@
 
     </header>
     <div class="cxt__cont">
+        <div class="mob__descr">
+            <p>&nbsp; Вся информация от:</p>
+            <div class="mobdescr__site-block">
+            <h3 class="mobdescr__site-name">Бухгалтер911 </h3>
+
+            <h3 class="mobdescr__site-name">Дебет-кредит </h3>
+
+            <h3 class="mobdescr__site-name">Бухгалтер.UA </h3>
+
+            <h3 class="mobdescr__site-name">IFactor </h3>
+
+            <h3 class="mobdescr__site-name">Интерактивная бухгалтерия </h3>
+
+            <h3 class="mobdescr__site-name">Журнал "Бухгалтерия" </h3>
+            </div>
+            <p>Просто обновляйте эту страницу или <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">подпишитесь на наш канал Телеграм</a>:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p>
+        </div>
         <main class="links__container">
             @foreach($links as $link)
                 <div class="link__box">
@@ -102,7 +119,21 @@
 
         </main>
         <aside class="sidebar_main">
-            <div class="header__descr">Теперь не нужно мониторить все сайты для бухгалтеров, чтобы быть в курсе событий и понимать различные точки зрения. Просто обновляйте эту страницу:  на ней сразу после появления размещаются <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины. </div>
+            <div class="header__descr">
+                <p>Самая свежая информация от:</p>
+
+                <h3 class="sidebar__site-name">Бухгалтер911</h3>
+
+                <h3 class="sidebar__site-name">Дебет-кредит</h3>
+
+                <h3 class="sidebar__site-name">Бухгалтер.UA</h3>
+
+                <h3 class="sidebar__site-name">IFactor</h3>
+
+                <h3 class="sidebar__site-name">Интерактивная бухгалтерия</h3>
+
+                <h3 class="sidebar__site-name">Журнал "Бухгалтерия"</h3>
+                <p>Теперь не нужно мониторить разные сайты, чтобы быть в курсе событий и понимать различные точки зрения. Просто обновляйте эту страницу:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p> </div>
             <div class="telegram_info">
 
                 <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">Подпишись на наш канал в Telegram</a> и получай самую свежую профессиональную информацию прямо в любимый мессенджер
