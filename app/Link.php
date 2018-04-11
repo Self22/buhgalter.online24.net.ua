@@ -84,7 +84,7 @@ class Link extends Model
                 sleep(2);
                 Link::save_link($href, $anchor, 'Бухгалтер911', $category);
             } elseif (strpos($anchor, 'Вопрос')) {
-                $anchor = str_replace('Вопрос', '', $anchor);
+
                 $category = 'вопрос';
                 if (Link::where('href', $href)->exists()) {
                     continue;
@@ -93,7 +93,7 @@ class Link extends Model
                 sleep(2);
                 Link::save_link($href, $anchor, 'Бухгалтер911', $category);
             } elseif (strpos($anchor, 'Закон')) {
-                $anchor = str_replace('Закон', '', $anchor);
+
                 $category = 'закон';
                 if (Link::where('href', $href)->exists()) {
                     continue;
@@ -115,9 +115,14 @@ class Link extends Model
                 if (Link::where('href', $href)->exists()) {
                     continue;
                 }
+
+
                 Link::telegram($href, $anchor, 'Бухгалтер911', 'новость');
-                sleep(2);
-                Link::save_link($href, $anchor, 'Бухгалтер911', 'новость');
+
+
+                    sleep(2);
+                    Link::save_link($href, $anchor, 'Бухгалтер911', 'новость');
+
 
             }
         }
@@ -270,6 +275,9 @@ class Link extends Model
             if (Link::where('href', $href)->exists()) {
                 return;
             }
+
+
+
             Link::telegram($href, $anchor, 'Дебет-Кредит', 'консультация');
             sleep(2);
             Link::save_link($href, $anchor, 'Дебет-Кредит', 'консультация');
@@ -303,9 +311,12 @@ class Link extends Model
             if (Link::where('href', $href)->exists()) {
                 return;
             }
+
             Link::telegram($href, $anchor, 'Газета "Бухгалтерия"', 'новость');
-            sleep(2);
-            Link::save_link($href, $anchor, 'Газета "Бухгалтерия"', 'новость');
+
+                sleep(2);
+                Link::save_link($href, $anchor, 'Газета "Бухгалтерия"', 'новость');
+
 
         }
 

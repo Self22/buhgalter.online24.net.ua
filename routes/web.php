@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,11 @@
 |
 */
 
-Route::get('/', 'ParseController@index');
+Route::get('/{buhgalterskie_novosti?}', 'ParseController@index');
 
-Route::get('/911', 'ParseController@p911');
+
+
+
+
+
+

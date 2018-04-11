@@ -106,8 +106,10 @@
                     <div class="link__time">{{$link->date}}<br>{{$link->time}}</div>
                     <a href="{{$link->href}}" rel="nofollow" target="_blank" class="link__href">{{$link->anchor}}</a>
 
-                    <div class="link__site">{{$link->site}}</div>
-                    <div class="link__category">{{$link->category}}</div>
+                    <div class="sc__block">
+                        <div class="link__site">{{$link->site}}</div>
+                        <div class="link__category">{{$link->category}}</div>
+                    </div>
                 </div>
             @endforeach
             <div class="pagination_cont">
@@ -136,14 +138,14 @@
                 <p>Теперь не нужно мониторить разные сайты, чтобы быть в курсе событий и понимать различные точки зрения. Просто обновляйте эту страницу:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p> </div>
             <div class="telegram_info">
 
-                <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">Подпишись на наш канал в Telegram</a> и получай самую свежую профессиональную информацию прямо в любимый мессенджер
+                <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">Подпишись на наш канал в Telegram</a> и читай самую свежую профессиональную информацию в любимом мессенджере
                 <a class="telegram_img-link" rel="nofollow" href="https://t.me/buhgalter_ukraine_online24"><img class="telegram__icon" src="{{ asset('img/telegram_logo.png') }}" alt=""></a>
             </div>
         </aside>
         <div class="sidebar_main-mob">
             <a href="" class="telegram__mob-img"><img src="{{ asset('img/telegram_logo.png') }}" alt=""></a>
             <p class="telegram__mob-text"><a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">Подпишись на наш канал в Telegram</a>
-                <br> и получай эту информацию автоматически в любимый мессенджер</p>
+                <br>  и читай всю профессиональную информацию в любимом мессенджере</p>
         </div>
     </div>
 
