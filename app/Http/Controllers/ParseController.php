@@ -29,5 +29,10 @@ class ParseController extends Controller
             ->with(['links_mob' => $links_mob, 'links' => $links]);
     }
 
+    public function test()
+    {
+        Link::parse_ib();
+    }
+
 
 }

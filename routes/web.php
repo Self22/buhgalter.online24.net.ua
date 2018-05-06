@@ -12,8 +12,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/test', 'ParseController@test');
 Route::get('/{buhgalterskie_novosti?}', 'ParseController@index');
+
+
 
 
 
