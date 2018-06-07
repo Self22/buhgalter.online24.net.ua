@@ -28,28 +28,43 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             Link::parse_ib();
-        })->everyMinute();
+        })->everyFiveMinutes();
 
         $schedule->call(function () {
-            Link::parse_buhligazakon();
-        })->everyMinute();
+            Link::parse_buhligazakon_news();
+        })->everyFiveMinutes();
 
         $schedule->call(function () {
-            Link::parse_ifactor();
-        })->everyMinute();
+            Link::parse_buhligazakon_analytics();
+        })->everyFiveMinutes();
 
         $schedule->call(function () {
-            Link::parse_dtkt();
-        })->everyMinute();
+            Link::parse_ifactor_news();
+        })->everyFiveMinutes();
+
+        $schedule->call(function () {
+            Link::parse_dtkt_news();
+        })->everyFiveMinutes();
 
         $schedule->call(function () {
             Link::parse_buhgalteria();
-        })->everyMinute();
+        })->daily();
 
         $schedule->call(function () {
             Link::parse_911();
-        })->everyMinute();
+        })->everyFiveMinutes();
 
+        $schedule->call(function () {
+            Link::parse_balance();
+        })->everyFiveMinutes();
+
+        $schedule->call(function () {
+            Link::parse_ifactor_articles();
+        })->everyFiveMinutes();
+
+        $schedule->call(function () {
+            Link::telegram();
+        })->everyFiveMinutes();
 
 
 

@@ -14,6 +14,8 @@
 */
 Route::get('/test', 'ParseController@test');
 Route::get('/{buhgalterskie_novosti?}', 'ParseController@index');
+Route::get('/buhgalterskaya_novost/{slug}', 'ParseController@show_news');
+
 
 
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="ru">
 <head>
     @include('shared.ga')
     <meta charset="UTF-8">
@@ -83,28 +83,12 @@
 
     </header>
     <div class="cxt__cont">
-        <div class="mob__descr">
-            <p>&nbsp; Вся информация от:</p>
-            <div class="mobdescr__site-block">
-            <h3 class="mobdescr__site-name">Бухгалтер911 </h3>
 
-            <h3 class="mobdescr__site-name">Дебет-кредит </h3>
-
-            <h3 class="mobdescr__site-name">Бухгалтер.UA </h3>
-
-            <h3 class="mobdescr__site-name">IFactor </h3>
-
-            <h3 class="mobdescr__site-name">Интерактивная бухгалтерия </h3>
-
-            <h3 class="mobdescr__site-name">Журнал "Бухгалтерия" </h3>
-            </div>
-            <p>Просто обновляйте эту страницу или <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">подпишитесь на наш канал Телеграм</a>:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p>
-        </div>
         <main class="links__container">
             @foreach($links as $link)
                 <div class="link__box">
                     <div class="link__time">{{$link->date}}<br>{{$link->time}}</div>
-                    <a href="{{$link->href}}" rel="nofollow" target="_blank" class="link__href">{{$link->anchor}}</a>
+                    <a href="/buhgalterskaya_novost/{{$link->slug}}" target="_blank" class="link__href">{{$link->anchor}}</a>
 
                     <div class="sc__block">
                         <div class="link__site">{{$link->site}}</div>
@@ -120,6 +104,24 @@
             </div>
 
         </main>
+        <div class="mob__descr">
+            <p>&nbsp; Вся информация от:</p>
+            <div class="mobdescr__site-block">
+                <h3 class="mobdescr__site-name">Бухгалтер911 </h3>
+
+                <h3 class="mobdescr__site-name">Дебет-кредит </h3>
+
+                <h3 class="mobdescr__site-name">Бухгалтер.UA </h3>
+
+                <h3 class="mobdescr__site-name">IFactor </h3>
+
+                <h3 class="mobdescr__site-name">Интерактивная бухгалтерия </h3>
+
+                <h3 class="mobdescr__site-name">Журнал "Бухгалтерия" </h3>
+                <h3 class="mobdescr__site-name">Баланс</h3>
+            </div>
+            <p>Просто обновляйте эту страницу или <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">подпишитесь на наш канал Телеграм</a>:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p>
+        </div>
         <aside class="sidebar_main">
             <div class="header__descr">
                 <p>Самая свежая информация от:</p>
@@ -135,6 +137,7 @@
                 <h3 class="sidebar__site-name">Интерактивная бухгалтерия</h3>
 
                 <h3 class="sidebar__site-name">Журнал "Бухгалтерия"</h3>
+                <h3 class="sidebar__site-name">Баланс</h3>
                 <p>Теперь не нужно мониторить разные сайты, чтобы быть в курсе событий и понимать различные точки зрения. Просто обновляйте эту страницу:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p> </div>
             <div class="telegram_info">
 

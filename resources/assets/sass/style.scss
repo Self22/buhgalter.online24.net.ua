@@ -17,7 +17,7 @@ html, body {
 
 html{
   padding: 0 10% 0 9%;
-  background: rgb(247, 243, 224);
+
 position: relative;
 
   @include phones{
@@ -26,17 +26,22 @@ position: relative;
 }
 
 .header__index {
-  padding-top: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 20px;
   padding-left: 2%;
   display: flex;
   flex-flow: row wrap;
-  padding-bottom: 30px;
-  background: rgb(247, 243, 224);
+  background: #ecf9ff;
+
+
 
   @include phones{
     padding-top: 15px;
-    padding-bottom: 0;
-    margin-bottom: -20px;
+    padding-bottom: 15px;
   }
 }
 
@@ -52,8 +57,8 @@ position: relative;
 }
 
 .project__name {
-  font-size: 40px;
-  font-style: italic;
+  font-size: 36px;
+
   font-weight: 500;
   color: #0e6792;
 
@@ -65,12 +70,12 @@ position: relative;
 
 .project__slogan{
   font-weight: 400;
-  font-size: 28px;
-  margin: 10px 0 5px;
+  font-size: 26px;
+  margin: 5px 0 5px;
 
   @include phones{
     font-size: 16px;
-    text-align: left;
+    text-align: center;
     margin: 2px 0 0 20px;
   }
 
@@ -87,7 +92,7 @@ position: relative;
   }
 
   & svg{
-    width: 60%;
+    width: 40%;
     
     @include phones{
       width: 25%;
@@ -136,28 +141,34 @@ position: relative;
   }
 }
 
-.links__container {
+.links__container, .news__container {
   flex: 6;
-  padding: 30px 3% 10px 3%;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 30px 3% 30px 3%;
+  background: #ecf9ff;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
 
   @include phones{
     padding: 20px 5% 10px 5%;
   }
 }
 
+
+
 .link__box {
   display: flex;
   flex-flow: row;
   margin-bottom: 15px;
   align-items: baseline;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 15px;
 
   @include phones{
     flex-flow: row wrap;
     align-items: flex-start;
     padding-bottom: 17px;
-    margin-bottom: 17px;
+    margin-bottom: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
@@ -199,6 +210,10 @@ position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  @include phones{
+    width: 100%;
+  }
 }
 .link__site {
   background: #41336E;
@@ -209,11 +224,11 @@ position: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 13px;
-  letter-spacing: 0.7px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
   color: white;
   padding: 3px 10px 5px;
-  width: 130px;
+  width: 200px;
 
   @include phones{
     font-size: 10px;
@@ -277,7 +292,7 @@ position: relative;
 .sidebar_main {
   flex: 2;
   padding: 0 0 0 4% ;
-  background: rgb(247, 243, 224) ;
+
 
   @include phones{
     display: none;}
@@ -363,4 +378,27 @@ position: relative;
   @include phones{
     font-size: 16px;
   }
+}
+
+.news__container{
+  display: flex;
+  flex-direction: column;
+}
+
+.info__container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.site__name{
+  flex: 60%;
+}
+
+.news__date{
+  flex: 20%;
+}
+
+.news__time{
+  flex: 20%;
 }
