@@ -21,7 +21,7 @@
     </div>
 
 
-    <a href="http://online24.net.ua/" rel="nofollow" class="project__logo">
+    <a href="http://buhgalter.online24.net.ua" rel="nofollow" class="project__logo">читать все <br> бухгалтерские новости на
         <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
              viewBox="0 0 479.1 245.6" style="enable-background:new 0 0 479.1 245.6;" xml:space="preserve">
 <g>

@@ -468,6 +468,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-right: 3%;
 }
 
 @media screen and (max-width: 480px) {
@@ -506,9 +507,9 @@ html {
 }
 
 .project__logo {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -518,6 +519,8 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-decoration: none;
+  text-align: center;
 }
 
 @media screen and (max-width: 480px) {
@@ -529,7 +532,8 @@ html {
 }
 
 .project__logo svg {
-  width: 40%;
+  width: 30%;
+  margin-left: 5%;
 }
 
 @media screen and (max-width: 480px) {
@@ -681,6 +685,8 @@ html {
           flex: 9;
   font-size: 16px;
   font-weight: 400;
+  color: black;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 480px) {

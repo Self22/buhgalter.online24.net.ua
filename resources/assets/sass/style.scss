@@ -50,6 +50,7 @@ position: relative;
 
   display: flex;
   flex-direction: column;
+  padding-right: 3%;
 
   @include phones{
     flex: auto;
@@ -82,17 +83,20 @@ position: relative;
 }
 
 .project__logo {
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  text-align: center;
   
   @include phones{
     justify-content: flex-end;
   }
 
   & svg{
-    width: 40%;
+    width: 30%;
+    margin-left: 5%;
     
     @include phones{
       width: 25%;
@@ -196,6 +200,8 @@ position: relative;
   flex: 9;
   font-size: 16px;
   font-weight: 400;
+  color: black;
+  text-decoration: none;
   @include phones{
     font-size: 14px;
     margin-bottom: 10px;
