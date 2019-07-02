@@ -10,20 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="F6kJ3VRxUYOB9KVn8urQrJ-LI6GunxQ62UQMg_W3Htc" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3404157941884067",
+            enable_page_level_ads: true
+        });
+    </script>
 </head>
 <body>
 
     <header class="header__index">
-        <div class="name-slogan__cont">
+        <a href="/" class="name-slogan__cont">
             <div class="project__name">
                 Бухгалтер Онлайн24
             </div>
 
+
             <h1 class="project__slogan">новостной бухгалтерский портал Украины</h1>
-        </div>
+        </a>
 
 
-        <a href="http://online24.net.ua/" rel="nofollow" class="project__logo"><svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+        <a href="/" class="project__logo"><svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
                                         viewBox="0 0 479.1 245.6" style="enable-background:new 0 0 479.1 245.6;" xml:space="preserve">
 <g>
     <g>
@@ -91,17 +99,39 @@
                     <a href="/buhgalterskaya_novost/{{$link->slug}}" target="_blank" class="link__href">{{$link->anchor}}</a>
 
                     <div class="sc__block">
-                        <div class="link__site">{{$link->site}}</div>
-                        <div class="link__category">{{$link->category}}</div>
+                        <div class="link__site">
+                            @if($link->site == 'Бухгалтер.UA')
+                                <a href="/sourse/buhgalter_ua" class="sourse__link-main"> {{$link->site}}</a>
+                            @endif
+                            @if($link->site == 'Баланс')
+                                <a href="/sourse/balanse" class="sourse__link-main"> {{$link->site}}</a>
+                            @endif
+                            @if($link->site == 'Интерактивная бухгалтерия')
+                                <a href="/sourse/interaktivnaya_buhgalteriya" class="sourse__link-main"> {{$link->site}}</a>
+                            @endif
+                            @if($link->site == 'Бухгалтер911')
+                                <a href="/sourse/buhgalter911" class="sourse__link-main"> {{$link->site}}</a>
+                            @endif
+                            @if($link->site == 'iFactor')
+                                <a href="/sourse/ifactor" class="sourse__link-main"> {{$link->site}}</a>
+                            @endif
+                            @if($link->site == 'Дебет-Кредит')
+                                <a href="/sourse/debet_kredit" class="sourse__link-main"> {{$link->site}}</a>
+                            @endif</div>
+                        @isset($link->category)
+                            <div class="link__category">{{$link->category}}</div>
+                        @endisset
                     </div>
                 </div>
             @endforeach
             <div class="pagination_cont">
                 {{ $links->links() }}
             </div>
-            <div class="pagination_cont-mob">
-                {{ $links_mob->links() }}
-            </div>
+            @isset($links_mob)
+                <div class="pagination_cont-mob">
+                    {{ $links_mob->links() }}
+                </div>
+            @endisset
 
         </main>
         <div class="mob__descr">
@@ -118,11 +148,35 @@
                 <h3 class="mobdescr__site-name">Интерактивная бухгалтерия </h3>
 
                 <h3 class="mobdescr__site-name">Журнал "Бухгалтерия" </h3>
-                <h3 class="mobdescr__site-name">Баланс</h3>
+
             </div>
             <p>Просто обновляйте эту страницу или <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">подпишитесь на наш канал Телеграм</a>:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p>
         </div>
         <aside class="sidebar_main">
+            <div class="search__cont">
+                <form action="/common_search" method="POST" role="search">
+                    {{ csrf_field() }}
+
+                        <input type="text" class="form-control" name="q"
+                               placeholder="Поиск по статьям">
+            <button type="submit" class="btn btn-default">
+                Искать
+            </button>
+
+
+                </form>
+            </div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Sidebar -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3404157941884067"
+                 data-ad-slot="8269689997"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
             <div class="header__descr">
                 <p>Самая свежая информация от:</p>
 
@@ -137,19 +191,26 @@
                 <h3 class="sidebar__site-name">Интерактивная бухгалтерия</h3>
 
                 <h3 class="sidebar__site-name">Журнал "Бухгалтерия"</h3>
-                <h3 class="sidebar__site-name">Баланс</h3>
+
                 <p>Теперь не нужно мониторить разные сайты, чтобы быть в курсе событий и понимать различные точки зрения. Просто обновляйте эту страницу:  мы размещаем <b>ссылки на все последние новости, консультации и аналитику</b> лучших бухгалтерских сайтов Украины.</p> </div>
             <div class="telegram_info">
 
                 <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">Подпишись на наш канал в Telegram</a> и читай самую свежую профессиональную информацию в любимом мессенджере
-                <a class="telegram_img-link" rel="nofollow" href="https://t.me/buhgalter_ukraine_online24"><img class="telegram__icon" src="{{ asset('img/telegram_logo.png') }}" alt=""></a>
+                <a class="telegram_img-link" rel="nofollow" href="https://t.me/buhgalter_ukraine_online24"><img class="telegram__icon" src="{{ asset('images/telegramlogo.png') }}" alt=""></a>
+            </div>
+            <div class="sidebar_foreign-link">
+                <a href="/msfo_consultation/">Новости зарубежной бухгалтерии</a>
             </div>
         </aside>
         <div class="sidebar_main-mob">
-            <a href="" class="telegram__mob-img"><img src="{{ asset('img/telegram_logo.png') }}" alt=""></a>
+            <a href="" class="telegram__mob-img"><img src="{{ asset('images/telegramlogo.png') }}" alt=""></a>
             <p class="telegram__mob-text"><a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">Подпишись на наш канал в Telegram</a>
                 <br>  и читай всю профессиональную информацию в любимом мессенджере</p>
+            <div class="sidebar_foreign-link">
+                <a href="/msfo_consultation/">Новости зарубежной бухгалтерии</a>
+            </div>
         </div>
+
     </div>
 
 <footer class="footer__index">

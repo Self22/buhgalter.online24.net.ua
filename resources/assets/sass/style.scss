@@ -45,9 +45,10 @@ position: relative;
   }
 }
 
+
 .name-slogan__cont{
   flex: 3;
-
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   padding-right: 3%;
@@ -179,7 +180,7 @@ position: relative;
 .link__time {
   margin-right: 3%;
   flex: 0 0 auto;
-  width: 100px;
+  width: 105px;
   text-align: left;
   line-height: 1.9;
   display: flex;
@@ -202,6 +203,12 @@ position: relative;
   font-weight: 400;
   color: black;
   text-decoration: none;
+
+  &:hover{
+    color: blue;
+    text-decoration: underline;
+  }
+
   @include phones{
     font-size: 14px;
     margin-bottom: 10px;
@@ -222,7 +229,7 @@ position: relative;
   }
 }
 .link__site {
-  background: #41336E;
+  background: #cfdae0;
   margin-right: 1%;
   font-weight: 400;
   flex: 2;
@@ -232,9 +239,10 @@ position: relative;
   text-align: center;
   font-size: 12px;
   letter-spacing: 0.6px;
-  color: white;
-  padding: 3px 10px 5px;
+  color: #41336E;
+  padding: 4px 10px 4px;
   width: 200px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 
   @include phones{
     font-size: 10px;
@@ -395,16 +403,63 @@ position: relative;
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
+  align-items: center;
 }
 
 .site__name{
-  flex: 60%;
+  flex: 70%;
+  margin-bottom: 15px;
+}
+
+.news__timestamp-cont{
+  flex: 30%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  color: #3032f2;
 }
 
 .news__date{
-  flex: 20%;
+  flex: 60%;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: white;
 }
 
 .news__time{
-  flex: 20%;
+  flex: 40%;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.sourse__cont{
+  flex: 70%;
+}
+
+.sidebar_foreign-link{
+  text-align: center;
+  margin-top: 20px;
+
+  & a{
+    text-align: center;
+    font-weight: 500;
+  }
+
+}
+
+.sourse__link{
+
+  &-main{
+    text-decoration: none;
+  }
+}
+
+.news__facebook{
+  margin-top: 25px;
+
 }
