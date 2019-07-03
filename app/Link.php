@@ -665,7 +665,7 @@ class Link extends Model
 
     public static function testTelegramIncoming(){
 
-        $telegram = new Api('685659754:AAEZjxFp4_xSBGBN0_rbGYARmIF4wAA0j8U');
+        $telegram = new Api('');
 
         $response = $telegram->getMe();
 
@@ -824,7 +824,7 @@ class Link extends Model
 
     public static function testGoogleTranslate(){
         $translate = new TranslateClient([
-            'key' => 'AIzaSyDKthxNLsVz8THve60XpFjtjX96GgH8FOE'
+            'key' => ''
         ]);
 
 // Translate text from english to french.
