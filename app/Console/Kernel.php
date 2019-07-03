@@ -3,6 +3,9 @@
 namespace App\Console;
 
 use App\Link;
+use App\SiteSettings;
+use App\TranslatedArticle;
+use App\ForeignText;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -27,47 +30,49 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
+            Link::telegram();
+        })->hourly();
+
+        $schedule->call(function () {
             Link::parse_ib();
-        })->everyFiveMinutes();
+        })->hourly();
 
         $schedule->call(function () {
             Link::parse_buhligazakon_news();
-        })->everyFiveMinutes();
+        })->hourly();
 
         $schedule->call(function () {
             Link::parse_buhligazakon_analytics();
-        })->everyFiveMinutes();
-
-        $schedule->call(function () {
-            Link::parse_ifactor_news();
-        })->everyFiveMinutes();
+        })->hourly();
 
         $schedule->call(function () {
             Link::parse_dtkt_news();
-        })->everyFiveMinutes();
-
-        $schedule->call(function () {
-            Link::parse_buhgalteria();
-        })->daily();
+        })->hourly();
 
         $schedule->call(function () {
             Link::parse_911();
-        })->everyFiveMinutes();
+        })->hourly();
 
         $schedule->call(function () {
             Link::parse_balance();
-        })->everyFiveMinutes();
+        })->hourly();
+
+        
+        $schedule->call(function () {
+            Link::parse_ifactor_news();
+        })->hourly();
 
         $schedule->call(function () {
-            Link::parse_ifactor_articles();
-        })->everyFiveMinutes();
+            Link::testParseResults();
+        })->weekly();
 
         $schedule->call(function () {
-            Link::telegram();
-        })->everyFiveMinutes();
+            ForeignText::parseJournalOfAccountancy();
+        })->daily();
 
-
-
+        $schedule->call(function () {
+            TranslatedArticle::makeTranslateArticle();
+        })->twiceDaily(1, 13);
     }
 
     /**

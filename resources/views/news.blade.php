@@ -10,8 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="F6kJ3VRxUYOB9KVn8urQrJ-LI6GunxQ62UQMg_W3Htc"/>
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3404157941884067",
+            enable_page_level_ads: true
+        });
+    </script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v3.3"></script>
 
 <header class="header__index">
     <div class="name-slogan__cont">
@@ -87,14 +96,44 @@
 
     <main class="news__container">
         <div class="info__container">
-            <div class="site__name"><b>Источник: {{$site_name}}</b></div>
-            <div class="news__date">{{$date}}</div>
-            <div class="news__time">{{$time}}</div></div>
+            <div class="sourse__cont">
+                <div class="site__name"><b>Источник: {{$site_name}}</b></div>
+                @if($site_name == 'Бухгалтер.UA')
+                    <a href="../sourse/buhgalter_ua" class="sourse__link">Смотреть все материалы {{$site_name}}</a>
+                @endif
+                @if($site_name == 'Баланс')
+                    <a href="../sourse/balanse" class="sourse__link">Смотреть все материалы {{$site_name}}</a>
+                @endif
+                @if($site_name == 'Интерактивная бухгалтерия')
+                    <a href="../sourse/interaktivnaya_buhgalteriya" class="sourse__link">Смотреть все материалы {{$site_name}}</a>
+                @endif
+                @if($site_name == 'Бухгалтер911')
+                    <a href="../sourse/buhgalter911" class="sourse__link">Смотреть все материалы {{$site_name}}</a>
+                @endif
+                @if($site_name == 'iFactor')
+                    <a href="../sourse/ifactor" class="sourse__link">Смотреть все материалы {{$site_name}}</a>
+                @endif
+                @if($site_name == 'Дебет-Кредит')
+                    <a href="../sourse/debet_kredit" class="sourse__link">Смотреть все материалы {{$site_name}}</a>
+                @endif
+
+
+
+            </div>
+
+            <div class="news__timestamp-cont">
+                <div class="news__date">{{$date}}</div>
+                <div class="news__time">{{$time}}</div>
+            </div>
+            </div>
         <div class="news__text">
             {!!$text!!}
         </div>
         <div class="news__origin">
             <a rel="nofollow" href="{{$origin}}">Ссылка на оригинал статьи</a>
+        </div>
+        <div class="news__facebook">
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Поделиться</a></div>
         </div>
 
 
@@ -114,14 +153,38 @@
             <h3 class="mobdescr__site-name">Интерактивная бухгалтерия </h3>
 
             <h3 class="mobdescr__site-name">Журнал "Бухгалтерия" </h3>
-            <h3 class="mobdescr__site-name">Баланс </h3>
+
 
         </div>
-        <p>Просто обновляйте эту страницу или <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">подпишитесь
+        <p>Просто обновляйте <a href="/">главную страницу</a>нашего сайта или <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">подпишитесь
                 на наш канал Телеграм</a>: мы размещаем <b>все последние новости, консультации и аналитику</b>
             лучших бухгалтерских сайтов Украины.</p>
     </div>
     <aside class="sidebar_main">
+        <div class="search__cont">
+            <form action="/common_search" method="POST" role="search">
+                {{ csrf_field() }}
+
+                <input type="text" class="form-control" name="q"
+                       placeholder="Поиск по статьям">
+                <button type="submit" class="btn btn-default">
+                    Искать
+                </button>
+
+
+            </form>
+        </div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Sidebar -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3404157941884067"
+             data-ad-slot="8269689997"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
         <div class="header__descr">
             <p>Самая свежая информация от:</p>
 
@@ -136,17 +199,17 @@
             <h3 class="sidebar__site-name">Интерактивная бухгалтерия</h3>
 
             <h3 class="sidebar__site-name">Журнал "Бухгалтерия"</h3>
-            <h3 class="sidebar__site-name">Баланс</h3>
+
 
             <p>Теперь не нужно мониторить разные сайты, чтобы быть в курсе событий и понимать различные точки зрения.
-                Просто обновляйте эту страницу: мы размещаем <b>все последние новости, консультации и
+                Просто обновляйте обновляйте <a href="/">главную страницу</a> нашего сайта: мы размещаем <b>все последние новости, консультации и
                     аналитику</b> лучших бухгалтерских сайтов Украины.</p></div>
         <div class="telegram_info">
 
             <a rel="nofollow" href="https://t.me/buhgalter_ukraine_online24">Подпишись на наш канал в Telegram</a> и
             читай самую свежую профессиональную информацию в любимом мессенджере
             <a class="telegram_img-link" rel="nofollow" href="https://t.me/buhgalter_ukraine_online24"><img
-                        class="telegram__icon" src="{{ asset('img/telegram_logo.png') }}" alt=""></a>
+                        class="telegram__icon" src="{{ asset('telegramlogo.png') }}" alt=""></a>
         </div>
     </aside>
     <div class="sidebar_main-mob">
